@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>{Title}{block:PostSummary} | {PostSummary}{/block:PostSummary}{block:SearchPage} | {lang:Search results for SearchQuery}{/block:SearchPage}</title>
+  	<meta name="description" content="{MetaDescription}" />
+		<meta name="if:Show description" content="1" />    
+		<meta name="if:Show search" content="1" />
+		<meta name="text:Twitter name" content="" />
+		<meta name="text:Disqus Shortname" content="" />
+		<meta name="text:Google Analytics ID" content="" />    
+		<link rel="shortcut icon" href="{Favicon}" />
+		<link rel="alternate" type="application/rss+xml" title="{Title}" href="{RSS}" />
+		<script language="javascript" src="http://sublim.nl/blog/jquery.min.js" type="text/javascript"></script>
+		<script language="javascript" src="http://sublim.nl/blog/jquery.chili-2.2.js" type="text/javascript"></script>
+		<script language="javascript" src="http://sublim.nl/blog/recipes.js" type="text/javascript"></script>
+        <link href="http://sublim.nl/blog/blog.css" rel="stylesheet" type="text/css" />
+    	<script language="javascript" src="http://sublim.nl/blog/onload.js" type="text/javascript"></script>
+		<!--[if IE]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+        <script type="text/javascript">
+            (function() {
+                var s = document.createElement('script'), t = document.getElementsByTagName('script')[0];
+
+                s.type = 'text/javascript';
+                s.async = true;
+                s.src = 'http://api.flattr.com/js/0.6/load.js?mode=auto';
+
+                t.parentNode.insertBefore(s, t);
+            })();
+        </script>
+    </head>
+	<body>
+		<div id="header">
+			<div class="inside">
+				<h2><a href="/">sublim.nl</a></h2>
+				<p class="description">code, homebrew and general randomness</p>
+				<div class="menu">
+					<ul id="nav">
+						<li class="page_item"><a class="active" href="/">Home</a></li>
+						<li class="page_item"><a  href="/about/" title="About" rel="author">About</a></li>
+						<li class="page_item"><a  href="/archives/" title="Archives">Archives</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+{block:Posts}
+		<div id="primary" class="single-post">
+            <input type="hidden" name="post_id" id="post_id" value="{PostID}">
+			<div class="inside">
+				<div class="primary">
+{block:RebloggedFrom}
+    				<h3><span><a href="{ReblogParentURL}" rel="bookmark" title="{ReblogParentTitle}">{ReblogParentTitle} &gt; {ReblogRootTitle}</a></span></h3>
+
+{/block:RebloggedFrom}
+{block:Text}
+{block:Title}
+					<h3><span><a href="{Permalink}" rel="bookmark" title="{Title}">{Title}</a></span></h3>
+{/block:Title}
+{Body}
+{/block:Text}
+                {block:Video}
+                    <li class="post video">
+                        {Video-500}
+
+                        {block:Caption}
+                            <div class="caption">{Caption}</div>
+                        {/block:Caption}
+                    </li>
+                {/block:Video}
+{block:Link}
+    				<h3><span><a href="{Permalink}" rel="bookmark" title="{Name}">{Name}</a></span></h3>
+        {block:Description}
+            <div class="description">{Description}</div>
+        {/block:Description}
+        <a href="{URL}" class="link" {Target}>Continue to {Name}...</a>
+{/block:Link}
+				</div>
+				<hr class="hide" />
+				<div class="secondary">
+					<div style="margin-bottom:30px">
+						<p style="color:#666">
+                            My name is Elliott and welcome to my blog. I am currently working as a Product Engineer at <a href="http://www.tumblr.com/">Tumblr</a> in New York City. I was previously at <a href="https://www.lot18.com/i/elliottcarlson">Lot18</a>. 
+						</p>
+						<p style="color:#666"><a href="/about">Learn more</a></p>
+					</div>
+					<div style="margin-bottom:15px">
+						<a id="hnews-sub" href="http://news.ycombinator.com/user?id=elliottcarlson"><img src="http://i.duckduckgo.com/i/ycombinator.com.ico" style="float:left; margin-right: 5px;"></a>
+					</div>
+					<div style="margin-bottom:15px">
+						<a id="twitter-sub" href="http://www.twitter.com/elliottcarlson"><img src="http://i.imgur.com/A7ToB.png" style="float:left; margin-right: 5px;"></a>
+					</div>
+					<div style="margin-bottom:15px">
+						<a id="linkedin-sub" href="http://www.linkedin.com/in/elliottcarlson"><img src="http://i.imgur.com/0g9AQ.png" style="float:left; margin-right: 5px;"></a>
+					</div>
+					<div style="margin-bottom:15px">
+						<a id="github-sub" href="http://www.github.com/elliottcarlson"><img src="http://i.imgur.com/NJ7qj.png" style="float:left; margin-right: 5px;"></a>
+					</div>
+					<div style="margin-bottom:15px">
+						<a id="delicious-sub" href="http://www.delicious.com/trendinteractive"><img src="http://i.imgur.com/3El84.png" style="float:left; margin-right: 5px;"></a>
+					</div>
+					<div>
+						<a id="rss-sub" href="{RSS}"><img src="http://i.imgur.com/QTJXU.png" style="float:left; margin-right: 5px;"></a>
+					</div>
+                    <div class="flattr">
+  <a class="FlattrButton" style="display:none;"
+      title="{PlaintextTitle} #{PostID}"
+      data-flattr-uid="elliottcarlson"
+      data-flattr-button="compact"
+      data-flattr-tags="tumblr{block:Tags},{Tag}{/block:Tags}"
+      data-flattr-category="rest"
+      data-flattr-lang="en_GB"
+      href="{Permalink}">
+      {block:Text}{PlaintextBody}{/block:Text}
+      {block:Photoset}
+          Photoset ({PhotoCount}){block:Caption}:
+              {PlaintextCaption}{/block:Caption}
+      {/block:Photoset}
+      {block:Photo}Photo: {PlaintextCaption}{/block:Photo}
+      {block:Audio}
+          Audio{block:Caption}: {PlaintextCaption}{/block:Caption}
+      {/block:Audio}
+      {block:Chat}
+          {block:Lines}
+              {PlaintextName}: {PlaintextLine}
+          {/block:Lines}
+      {/block:Chat}
+      {block:Answer}
+          Question: {PlaintextQuestion}
+          Answer: {PlaintextAnswer}
+      {block:Quote}
+          {PlaintextQuote} - {PlaintextSource}
+      {/block:Quote}
+      {block:Link}
+          {PlaintextName}{block:Description}:
+              {Description}{/block:Description}
+      {/block:Link}
+      {/block:Answer}
+      {block:Video}
+          Video{block:Caption}: {PlaintextCaption}{/block:Caption}
+      {/block:Video}
+  </a>
+</div>
+					<br /><br />
+					<br />
+					<h2>About this entry</h2>
+					<div class="featured">
+						<dl class="both">
+							<dt>Title:</dt>
+							<dd><a href="{Permalink}" rel="tag">{Title}</a></dd>
+						</dl>
+						<dl>
+							<dt>Published:</dt>
+							{block:Date}<dd>{MonthNumberWithZero}/{DayOfMonthWithZero}/{Year} | {12HourWithZero}:{Minutes}{AmPm}</dd>{/block:Date}
+						</dl>
+{block:HasTags}
+						<dl>
+							<dt>Tagged:</dt>
+							<dd>{block:Tags}<a href="{TagURL}" rel="tag">{Tag}</a>, {/block:Tags}</dd>
+						</dl>
+{/block:HasTags}
+{block:RebloggedFrom}
+						<dl>
+							<dt>Source:</dt>
+							<dd><a href="{ReblogParentURL}">{ReblogParentTitle}</a></dd>
+						</dl>
+{/block:RebloggedFrom}
+						<dl>
+							<dt>Comments:</dt>
+							<dd><a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a></dd>
+						</dl>
+					</div>
+    					<br />
+
+                    <nav id="pageNav">
+						<ul class="clearfix">
+						</ul>
+					</nav>
+
+                </div>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<hr class="hide" />
+		<div id="secondary">
+			<div class="inside">
+				<div class="comment-head">
+					<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:Title}{Title}{/block:Title}";</script>
+					<h2 class="expand">Show Comments</h2>
+					<div class="collapse{block:PermalinkPage} expanded{/block:PermalinkPage}">
+						<div id="disqus_thread"></div>
+					</div>
+					<script type="text/javascript">
+					  (function() {
+					   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+					   dsq.src = 'http://sublimnl.disqus.com/embed.js';
+					   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+					  })();
+					</script>
+					<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=sublimnl">comments powered by Disqus.</a></noscript>
+					<script type="text/javascript">
+					var disqus_shortname = 'sublimnl';
+					(function () {
+					  var s = document.createElement('script'); s.async = true;
+					  s.src = 'http://sublimnl.disqus.com/count.js';
+					  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+					}());
+					</script>
+				</div>
+			</div>
+		</div>
+		<hr class="hide" />
+		<div id="ancillary">
+			<div class="inside">
+				<div class="block first">
+					<h2><img src="http://i.imgur.com/A7ToB.png" style="float:left; margin-right: 5px;">Twitter Updates</h2>
+					<div style="margin-top:-0.5em;" class="twitter">
+						<div id="twitter_div">
+							<ul id="twitter_update_list"></ul>
+						</div>
+						<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js"></script>
+						<script type="text/javascript" src="https://api.twitter.com/1/statuses/user_timeline.json?screen_name=elliottcarlson&callback=twitterCallback2&count=5"></script>
+					</div>
+					<br />
+				</div>
+				<div class="block">
+					<h2>Recent Posts</h2>
+					<div style="margin-top:-0.5em;">
+						<div class="recent">
+						</div>
+					</div>
+					<br />
+				</div>
+				<div class="block">
+					<h2><img src="http://i.imgur.com/3El84.png" style="float:left; margin-right: 5px;"> Recent Bookmarks</h2>
+					<div style="margin-top:-0.5em;">
+						<div class="delicious">
+						</div>
+					</div>
+					<br />
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+{/block:Posts}
+
+            
+		<hr class="hide" />
+		<div id="footer">
+			<div class="inside">
+				<p class="copyright">Copyright &copy; {CopyrightYears} Elliott Carlson</p>
+				<p class="attributes"><a href="{RSS}"><img src="http://i.imgur.com/QTJXU.png" style="vertical-align:middle;"/>&nbsp; RSS</a> | Powered by <a href="http://www.tumblr.com/">Tumblr</a></p>
+			</div>
+		</div>
+	</body>
+</html>
